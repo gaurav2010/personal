@@ -7,16 +7,13 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static org.junit.Assert.*;
+
 /**
  * Created by malinni on 13/10/2016.
  */
-public class TestStream {
+public class Stream1Test {
 
-
-    /**
-     * Created by malinni on 12/10/2016.
-     */
-    public class Test1Test {
 
         @Test
         public void testFilter() {
@@ -95,7 +92,20 @@ public class TestStream {
 
         }
 
+        @Test
+        public void testStart(){
+            Function<String, Integer> funt = new Function<String, Integer>() {
+                @Override
+                public Integer apply(String s) {
+                    return s.length();
+                }
+            };
 
-    }
+            Arrays.stream(new String[]{"a11", "a211","b11","c12", "a11"})
+                    .map(funt)
+                    .forEach(System.out::println);
+
+        }
+
 
 }
